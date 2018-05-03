@@ -44,8 +44,8 @@ public class Avatar : MonoBehaviour
             var ts = trail.emission;
             ss.enabled = false;
             ts.enabled = false;
-            burst.Emit(burst.maxParticles);
-            deathCountdown = burst.startLifetime;
+            burst.Emit(burst.main.maxParticles);
+            deathCountdown = burst.main.startLifetimeMultiplier;
             avatarSound.Play();
         }
     }
