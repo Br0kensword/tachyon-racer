@@ -22,7 +22,7 @@ public class backgroundMusic : MonoBehaviour
     void Update()
     {
 
-        if (!audioSource.isPlaying)
+        if (!audioSource.isPlaying && audioSource.isActiveAndEnabled)
         {
             audioSource.clip = GetRandomClip();
             audioSource.Play();
