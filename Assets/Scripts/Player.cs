@@ -29,6 +29,7 @@ public class Player : MonoBehaviour {
 		SetupCurrentPipe();
         gameObject.SetActive(true);
         hud.SetValues(distanceTraveled, velocity);
+		
 	}
 
     private void Awake()
@@ -59,8 +60,15 @@ public class Player : MonoBehaviour {
     }
 
 	private void UpdateAvatarRotation () {
-		avatarRotation +=
-			rotationVelocity * Time.deltaTime * Input.GetAxis("Horizontal");
+		float rotationInput = 0f;
+
+		if(Application.isMobilePlatform){
+			rotationInput = Input.acceleration.x;
+		}
+		else{
+			rotationInput = Input.GetAxis("Horizontal");
+		}
+		avatarRotation += rotationVelocity * Time.deltaTime * rotationInput;
 		if (avatarRotation < 0f) {
 			avatarRotation += 360f;
 		}
