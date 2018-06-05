@@ -63,7 +63,7 @@ public class Player : MonoBehaviour {
 		float rotationInput = 0f;
 
 		if(Application.isMobilePlatform){
-			rotationInput = Input.acceleration.x;
+			rotationInput = Input.acceleration.x * 2.0f;
 		}
 		else{
 			rotationInput = Input.GetAxis("Horizontal");

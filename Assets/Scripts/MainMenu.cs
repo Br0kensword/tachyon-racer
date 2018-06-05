@@ -14,6 +14,11 @@ public class MainMenu : MonoBehaviour
 
     private bool muted = false;
 
+    private void Awake()
+    {
+        Application.targetFrameRate = 1000;
+    }
+
     public void StartGame()
     {
         player.StartGame();
